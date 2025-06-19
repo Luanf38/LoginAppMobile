@@ -1,6 +1,5 @@
 package com.luanlima.loginscreen.ui
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -17,6 +16,7 @@ import com.luanlima.loginscreen.ui.helpers.Screens
 import com.luanlima.loginscreen.ui.screens.LoginScreen
 import com.luanlima.loginscreen.ui.theme.LoginScreenTheme
 import androidx.compose.runtime.getValue
+import com.luanlima.loginscreen.ui.screens.HomeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,7 +44,15 @@ fun LoginApp(
                 modifier = Modifier.padding(it)
             ) {
                 composable(route = Screens.Login.name) {
-                    LoginScreen()
+                    LoginScreen(
+                        onClick = { navController.navigate(Screens.Home.name) },
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+                composable(route = Screens.Home.name) {
+                    HomeScreen(
+                        modifier = Modifier.fillMaxSize()
+                    )
                 }
             }
         }
