@@ -14,6 +14,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.luanlima.loginscreen.ui.composes.LoginAppAppBar
+import com.luanlima.loginscreen.ui.helpers.Screens
 import com.luanlima.loginscreen.ui.screens.LoginScreen
 import com.luanlima.loginscreen.ui.theme.LoginScreenTheme
 import org.w3c.dom.Text
@@ -35,7 +37,11 @@ fun LoginApp(modifier: Modifier = Modifier) {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = {
-                TopAppBar(title = { Text("Login") })
+                LoginAppAppBar(
+                    screen = Screens.Login,
+                    navigateUp = {},
+                    canNavigateBack = true
+                )
             }
         ) {
             LoginScreen(modifier = Modifier.padding(it))
